@@ -1,0 +1,113 @@
+:root {
+  /* Colors */
+  --cyan: hsl(179, 62%, 43%);
+  --bright-yellow: hsl(71, 73%, 54%);
+  --Light-Gray: hsl(204, 43%, 93%);
+  --Grayish-Blue: hsl(218, 22%, 67%);
+
+  font-size: 16px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--Light-Gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.71875rem;
+}
+main {
+  display: grid;
+  grid-template-columns: 320px;
+  grid-template-rows: repeat(3, 270px);
+  border-radius: 5px;
+  overflow: hidden;
+}
+section {
+  padding: 0.5em 1.5em;
+}
+.main-box {
+  background-color: white;
+}
+.main-box h3 {
+  color: var(--cyan);
+}
+.main-box h4 {
+  color: var(--bright-yellow);
+}
+.main-box p {
+  color: var(--Grayish-Blue);
+  line-height: 1.6;
+}
+.box {
+  background-color: var(--cyan);
+  color: white;
+  position: relative;
+}
+.box:last-child::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  opacity: 0.1;
+}
+.box .price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.box .price span {
+  font-size: 0.8rem;
+  color: var(--Light-Gray);
+  font-weight: 100;
+}
+.box p {
+  color: white;
+  line-height: 1.8;
+}
+.box button {
+  width: calc(100% - 3rem);
+  position: absolute;
+  cursor: pointer;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1em;
+  border: none;
+  outline: none;
+  background-color: var(--bright-yellow);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 7px 8px rgb(0 0 0 / 20%);
+  transition: 0.5s;
+}
+.box button:hover {
+  width: calc(100% - 2rem);
+  padding: 1.5em;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, 300px);
+    grid-template-rows: repeat(2, 250px);
+  }
+  .main-box {
+    grid-column: 1 / span 2;
+  }
+}
